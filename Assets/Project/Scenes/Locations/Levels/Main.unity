@@ -204,11 +204,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1033595774}
         m_TargetAssemblyTypeName: PlayerGameSystem, Assembly-CSharp
         m_MethodName: OnClick
-        m_Mode: 2
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 86853335}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -336,11 +336,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1033595774}
         m_TargetAssemblyTypeName: PlayerGameSystem, Assembly-CSharp
         m_MethodName: OnClick
-        m_Mode: 2
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 153514140}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -468,11 +468,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1033595774}
         m_TargetAssemblyTypeName: PlayerGameSystem, Assembly-CSharp
         m_MethodName: OnClick
-        m_Mode: 2
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 169426065}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -600,11 +600,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1033595774}
         m_TargetAssemblyTypeName: PlayerGameSystem, Assembly-CSharp
         m_MethodName: OnClick
-        m_Mode: 2
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 232028124}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1018,11 +1018,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1033595774}
         m_TargetAssemblyTypeName: PlayerGameSystem, Assembly-CSharp
         m_MethodName: OnClick
-        m_Mode: 2
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 669164748}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1181,11 +1181,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1033595774}
         m_TargetAssemblyTypeName: PlayerGameSystem, Assembly-CSharp
         m_MethodName: OnClick
-        m_Mode: 2
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 712321322}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1313,11 +1313,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1033595774}
         m_TargetAssemblyTypeName: PlayerGameSystem, Assembly-CSharp
         m_MethodName: OnClick
-        m_Mode: 2
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 808606699}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1539,10 +1539,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1386d726c1eccc6bb0cf3f8d20631f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerGameSystem
-  Prefab: {fileID: 4979250204091593546, guid: 52e21303f039460be8cbfdcf849fc9ea, type: 3}
-  Sprite1: {fileID: -2578613583421291379, guid: 504647d20da6d3f1d9e9b98354a3ae46, type: 3}
-  Sprite2: {fileID: 1703502639796891793, guid: 2a11c5c5b082b3bec96913ba586a9119, type: 3}
-  Parent: {fileID: 457197750}
+  prefab: {fileID: 4979250204091593546, guid: 52e21303f039460be8cbfdcf849fc9ea, type: 3}
+  parent: {fileID: 457197750}
+  buttons:
+  - {fileID: 2089485759}
+  - {fileID: 1184040800}
+  - {fileID: 86853335}
+  - {fileID: 669164748}
+  - {fileID: 153514140}
+  - {fileID: 169426065}
+  - {fileID: 808606699}
+  - {fileID: 232028124}
+  - {fileID: 712321322}
+  sprite1: {fileID: -2578613583421291379, guid: 504647d20da6d3f1d9e9b98354a3ae46, type: 3}
+  sprite2: {fileID: 1703502639796891793, guid: 2a11c5c5b082b3bec96913ba586a9119, type: 3}
 --- !u!1 &1170292478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,11 +1669,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1033595774}
         m_TargetAssemblyTypeName: PlayerGameSystem, Assembly-CSharp
         m_MethodName: OnClick
-        m_Mode: 2
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1184040800}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2126,10 +2136,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1033595774}
         m_TargetAssemblyTypeName: PlayerGameSystem, Assembly-CSharp
         m_MethodName: OnClick
-        m_Mode: 2
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 2089485759}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
