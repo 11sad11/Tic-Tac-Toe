@@ -1506,7 +1506,7 @@ GameObject:
   - component: {fileID: 1033595773}
   - component: {fileID: 1033595774}
   m_Layer: 0
-  m_Name: PlayerGameSystem
+  m_Name: GameBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
