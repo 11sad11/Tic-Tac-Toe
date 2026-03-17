@@ -3,13 +3,13 @@ using UnityEngine.UI;
 
 public class GameBoard : Singleton<GameBoard>
 {
-    protected override bool isPersistent => false;
+    protected override bool _isPersistent => false;
 
-    public GameObject prefab = null;
-    public GameObject parent = null;
-    public RectTransform[] buttons = null;
-    public Sprite sprite1 = null;
-    public Sprite sprite2 = null;
+    public GameObject Prefab = null;
+    public GameObject Parent = null;
+    public RectTransform[] Buttons = null;
+    public Sprite Sprite1 = null;
+    public Sprite Sprite2 = null;
 
     private Sprite _currentPlayerSprite = null;
     private readonly int[] _cellStates = new int[9];
@@ -28,38 +28,38 @@ public class GameBoard : Singleton<GameBoard>
 
     void Start()
     {
-        if (sprite1 == null || sprite2 == null) return;
+        if (Sprite1 == null || Sprite2 == null) return;
 
-        _currentPlayerSprite = sprite1;
+        _currentPlayerSprite = Sprite1;
     }
 
     public void OnSet(int indexButton)
     {
-        if (buttons[indexButton] == null) return;
+        if (Buttons[indexButton] == null) return;
 
         //Create
-        GameObject gameObject = Instantiate(prefab);
+        GameObject gameObject = Instantiate(Prefab);
         RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
-        gameObject.transform.SetParent(parent.transform, false);
+        gameObject.transform.SetParent(Parent.transform, false);
 
         //Set position
-        rectTransform.anchoredPosition = buttons[indexButton].anchoredPosition;
-        Destroy(buttons[indexButton].gameObject);
-        buttons[indexButton] = null;
+        rectTransform.anchoredPosition = Buttons[indexButton].anchoredPosition;
+        Destroy(Buttons[indexButton].gameObject);
+        Buttons[indexButton] = null;
 
         //Set sptite 
         Image image = gameObject.GetComponent<Image>();
         image.sprite = _currentPlayerSprite;
 
 
-        _cellStates[indexButton] = _currentPlayerSprite == sprite1 ? 1 : 2;
+        _cellStates[indexButton] = _currentPlayerSprite == Sprite1 ? 1 : 2;
         if (CheckWinner()) Debug.Break();
         Switch();
     }
 
     private void Switch()
     {
-        _currentPlayerSprite = _currentPlayerSprite == sprite1 ? sprite2 : sprite1;
+        _currentPlayerSprite = _currentPlayerSprite == Sprite1 ? Sprite2 : Sprite1;
     }
 
     private bool CheckWinner()

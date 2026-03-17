@@ -3,28 +3,28 @@ using UnityEngine.EventSystems;
 
 public class ButtonHoverAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private Animator animator;
-    private float progress = 0f;
-    private bool isHovering = false;
+    private Animator _animator;
+    private float _progress = 0f;
+    private bool _isHovering = false;
     
-    [SerializeField] private float animationSpeed = 1f;
+    [SerializeField] private float _animationSpeed = 1f;
 
     void Awake()
     {
-        animator = GetComponent<Animator>();
-        animator.speed = 0f;
+        _animator = GetComponent<Animator>();
+        _animator.speed = 0f;
     }
 
     void Update()
     {
-        if (isHovering)
-            progress += Time.deltaTime * animationSpeed;
+        if (_isHovering)
+            _progress += Time.deltaTime * _animationSpeed;
         else
-            progress -= Time.deltaTime * animationSpeed;
-        progress = Mathf.Clamp01(progress);
-        animator.Play("ButtonHover", 0, progress);
+            _progress -= Time.deltaTime * _animationSpeed;
+        _progress = Mathf.Clamp01(_progress);
+        _animator.Play("ButtonHover", 0, _progress);
     }
 
-    public void OnPointerEnter(PointerEventData eventData) => isHovering = true;
-    public void OnPointerExit(PointerEventData eventData) => isHovering = false;
+    public void OnPointerEnter(PointerEventData eventData) => _isHovering = true;
+    public void OnPointerExit(PointerEventData eventData) => _isHovering = false;
 }
