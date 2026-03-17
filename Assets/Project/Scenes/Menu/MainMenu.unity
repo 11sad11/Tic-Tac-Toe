@@ -735,7 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb42d64160b06fbe68c3d8f08a0ca6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Eyes
-  t: 3
+  T: 0
 --- !u!114 &859011272808414491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,7 +748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb42d64160b06fbe68c3d8f08a0ca6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Eyes
-  t: 3
+  T: 0
 --- !u!114 &1256705124227745038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -872,7 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f4a7ed59c0ea0ac9844f3c671a6e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonHoverAnimation
-  animationSpeed: 2
+  _animationSpeed: 3
 --- !u!114 &2201092306063313822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f4a7ed59c0ea0ac9844f3c671a6e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonHoverAnimation
-  animationSpeed: 2
+  _animationSpeed: 2
 --- !u!1 &3647133703268319746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,7 +1312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f4a7ed59c0ea0ac9844f3c671a6e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonHoverAnimation
-  animationSpeed: 1.25
+  _animationSpeed: 2
 --- !u!1 &8094063798847351956
 GameObject:
   m_ObjectHideFlags: 0
