@@ -1,7 +1,7 @@
 public class GameManager : Singleton<GameManager>
 {
-    public int _pointsPlayer1 { get; private set; }
-    public int _pointsPlayer2 { get; private set; }
+    public byte _pointsPlayer1 { get; private set; }
+    public byte _pointsPlayer2 { get; private set; }
 
 
     public void ResetPoints()
@@ -10,9 +10,11 @@ public class GameManager : Singleton<GameManager>
         _pointsPlayer2 = 0;
     }
 
-    public void AddPoint(byte index)
+    public void AddPoint(Winner winner)
     {
-        if (index == 1) _pointsPlayer1++;
-        else if (index == 2) _pointsPlayer2++;
+        if (winner == Winner.Player1) _pointsPlayer1++;
+        else if (winner == Winner.Player2) _pointsPlayer2++;
+        print("Player1: " + _pointsPlayer1);
+        print("Player: " + _pointsPlayer2);
     }
 }

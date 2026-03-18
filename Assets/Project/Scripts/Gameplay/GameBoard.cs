@@ -5,13 +5,15 @@ public class GameBoard : Singleton<GameBoard>
 {
     protected override bool _isPersistent => false;
 
-    public GameObject Prefab = null;
-    public GameObject Parent = null;
-    public RectTransform[] Buttons = null;
+    public GameObject PrefabImage = null;
+    public GameObject PrefabBoard = null;
     public Sprite Sprite1 = null;
     public Sprite Sprite2 = null;
 
+    [SerializeField] private Transform _canvas = null;
+    [SerializeField] private GameObject _board = null;
     private Sprite _currentPlayerSprite = null;
+    private RectTransform[] _buttons = null;
     private readonly int[] _cellStates = new int[9];
     private static readonly int[][] _winCombos = new int[][]
     {
@@ -29,32 +31,46 @@ public class GameBoard : Singleton<GameBoard>
     void Start()
     {
         if (Sprite1 == null || Sprite2 == null) return;
-
         _currentPlayerSprite = Sprite1;
+        if (_board == null) ResetBoard();
+        else _buttons = _board.GetComponent<BoardData>().Buttons;
+        _board.GetComponent<BoardData>().GameBoard = this;
     }
 
     public void OnSet(int indexButton)
     {
-        if (Buttons[indexButton] == null) return;
+        if (_buttons[indexButton] == null) return;
+        CreatePrefab(indexButton);
+        _cellStates[indexButton] = _currentPlayerSprite == Sprite1 ? 1 : 2;
 
+        Winner winner = CheckWinner();
+        if (winner != Winner.None)
+        {
+            GameManager.Instance.AddPoint(winner);
+            ResetBoard();
+            return;
+        }
+        else if (System.Array.TrueForAll(_cellStates, b => b != 0))
+            ResetBoard();
+
+        Switch();
+    }
+
+    private void CreatePrefab(int indexButton)
+    {
         //Create
-        GameObject gameObject = Instantiate(Prefab);
+        GameObject gameObject = Instantiate(PrefabImage);
         RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
-        gameObject.transform.SetParent(Parent.transform, false);
+        gameObject.transform.SetParent(_board.transform, false);
 
         //Set position
-        rectTransform.anchoredPosition = Buttons[indexButton].anchoredPosition;
-        Destroy(Buttons[indexButton].gameObject);
-        Buttons[indexButton] = null;
+        rectTransform.anchoredPosition = _buttons[indexButton].anchoredPosition;
+        Destroy(_buttons[indexButton].gameObject);
+        _buttons[indexButton] = null;
 
         //Set sptite 
         Image image = gameObject.GetComponent<Image>();
         image.sprite = _currentPlayerSprite;
-
-
-        _cellStates[indexButton] = _currentPlayerSprite == Sprite1 ? 1 : 2;
-        if (CheckWinner()) Debug.Break();
-        Switch();
     }
 
     private void Switch()
@@ -62,7 +78,7 @@ public class GameBoard : Singleton<GameBoard>
         _currentPlayerSprite = _currentPlayerSprite == Sprite1 ? Sprite2 : Sprite1;
     }
 
-    private bool CheckWinner()
+    private Winner CheckWinner()
     {
         foreach (var combo in _winCombos)
         {
@@ -72,13 +88,19 @@ public class GameBoard : Singleton<GameBoard>
 
             if (_cellStates[a] != 0 &&
                 _cellStates[a] == _cellStates[b] &&
-                _cellStates[a] == _cellStates[c])
-            {
-                Debug.Log("Player " + _cellStates[a] + " wins");
-                return true;
-            }
+                _cellStates[a] == _cellStates[c]) return (Winner)_cellStates[a];
         }
 
-        return false;
+        return Winner.None;
+    }
+
+    void ResetBoard()
+    {
+        if (_board != null) Destroy(_board);
+        _board = Instantiate(PrefabBoard, _canvas);
+        BoardData boardData = _board.GetComponent<BoardData>();
+        boardData.GameBoard = this;
+        _buttons = boardData.Buttons;
+        System.Array.Clear(_cellStates, 0, _cellStates.Length);
     }
 }

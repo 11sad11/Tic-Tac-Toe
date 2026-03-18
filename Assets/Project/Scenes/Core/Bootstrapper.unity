@@ -353,7 +353,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6916591984013056199, guid: eaf43b9a21dc3e966bef81f41f46bc37, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 9126370290262264480, guid: eaf43b9a21dc3e966bef81f41f46bc37, type: 3}
       insertIndex: -1
@@ -781,7 +782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2130310508}
   m_Layer: 0
-  m_Name: == Managers/Systems==
+  m_Name: == Managers/Systems ==
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -813,7 +814,7 @@ SceneRoots:
   - {fileID: 1429398191}
   - {fileID: 873140775}
   - {fileID: 2130310508}
+  - {fileID: 589063581}
+  - {fileID: 954040776}
   - {fileID: 727949847}
   - {fileID: 1390723813}
-  - {fileID: 954040776}
-  - {fileID: 589063581}
