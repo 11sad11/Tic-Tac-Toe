@@ -1,5 +1,7 @@
 public class GameManager : Singleton<GameManager>
 {
+    protected override bool _isPersistent => false;
+
     public byte _pointsPlayer1 { get; private set; }
     public byte _pointsPlayer2 { get; private set; }
 
