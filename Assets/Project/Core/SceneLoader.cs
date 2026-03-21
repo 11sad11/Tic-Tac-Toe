@@ -11,7 +11,7 @@ public class SceneLoader : Singleton<SceneLoader>
     }
     private void OnDisable()
     {
-        SceneManager.sceneLoaded += LoadedScene;
+        SceneManager.sceneLoaded -= LoadedScene;
     }
     private void LoadedScene(Scene scene, LoadSceneMode loadSceneMode) => Scene = scene;
 

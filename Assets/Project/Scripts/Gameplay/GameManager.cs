@@ -1,4 +1,5 @@
 using System;
+using UnityEngine.InputSystem;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -11,8 +12,11 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        InputSystem.actions["Exit"].canceled += OnExit;
         ScoreChanged?.Invoke(_pointsPlayer1, _pointsPlayer2);
     }
+
+    private void OnDestroy() => InputSystem.actions["Exit"].canceled -= OnExit;
 
     public void ResetPoints()
     {
@@ -28,4 +32,8 @@ public class GameManager : Singleton<GameManager>
         ScoreChanged?.Invoke(_pointsPlayer1, _pointsPlayer2);
     }
 
+    private void OnExit(InputAction.CallbackContext action)
+    {
+        SceneLoader.Instance.LoadMainMenu();
+    }
 }
