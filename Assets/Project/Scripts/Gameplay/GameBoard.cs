@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,11 +11,12 @@ public class GameBoard : Singleton<GameBoard>
     public Sprite Sprite1 = null;
     public Sprite Sprite2 = null;
 
-    [SerializeField] private Transform _canvas = null;
+    [SerializeField] private RectTransform _parentBoard = null;
     [SerializeField] private GameObject _board = null;
     private Sprite _currentPlayerSprite = null;
     private RectTransform[] _buttons = null;
     private readonly int[] _cellStates = new int[9];
+    private bool _isAnimating = false;
     private static readonly int[][] _winCombos = new int[][]
     {
     new int[]{0,1,2},
@@ -30,16 +32,16 @@ public class GameBoard : Singleton<GameBoard>
 
     void Start()
     {
-        if (Sprite1 == null || Sprite2 == null) return;
+        if (Sprite1 == null || Sprite2 == null || _parentBoard == null) return;
         _currentPlayerSprite = Sprite1;
         if (_board == null) ResetBoard();
-        else _buttons = _board.GetComponent<BoardData>().Buttons;
-        _board.GetComponent<BoardData>().GameBoard = this;
+        else _buttons = _board.GetComponent<GameBoardUI>().Buttons;
+        _board.GetComponent<GameBoardUI>().GameBoard = this;
     }
 
     public void OnSet(int indexButton)
     {
-        if (_buttons[indexButton] == null) return;
+        if (_isAnimating || _buttons == null || indexButton < 0 || indexButton >= _buttons.Length || _buttons[indexButton] == null) return;
         CreatePrefab(indexButton);
         _cellStates[indexButton] = _currentPlayerSprite == Sprite1 ? 1 : 2;
 
@@ -58,6 +60,8 @@ public class GameBoard : Singleton<GameBoard>
 
     private void CreatePrefab(int indexButton)
     {
+        if (indexButton < 0 || indexButton >= _buttons.Length) return;
+        
         //Create
         GameObject gameObject = Instantiate(PrefabImage);
         RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
@@ -96,11 +100,27 @@ public class GameBoard : Singleton<GameBoard>
 
     void ResetBoard()
     {
-        if (_board != null) Destroy(_board);
-        _board = Instantiate(PrefabBoard, _canvas);
-        BoardData boardData = _board.GetComponent<BoardData>();
+        _isAnimating = true;
+        
+        if (_board != null)
+        {
+            StartCoroutine(_board.GetComponent<GameBoardUI>().CloseAnimationBoard());
+            _board = null;
+        }
+
+        _board = Instantiate(PrefabBoard, _parentBoard);
+        _board.GetComponent<GameBoardUI>().OpenAnimationBoard();
+        GameBoardUI boardData = _board.GetComponent<GameBoardUI>();
         boardData.GameBoard = this;
         _buttons = boardData.Buttons;
         System.Array.Clear(_cellStates, 0, _cellStates.Length);
+        
+        StartCoroutine(WaitForAnimationComplete());
+    }
+    
+    private IEnumerator  WaitForAnimationComplete()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _isAnimating = false;
     }
 }
