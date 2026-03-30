@@ -465,8 +465,8 @@ Camera:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.426, g: 0.426, b: 0.426, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1153,8 +1153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerGameSystem
   PrefabImage: {fileID: 4979250204091593546, guid: 52e21303f039460be8cbfdcf849fc9ea, type: 3}
   PrefabBoard: {fileID: 603174431317102785, guid: 2717ae39b7352f4deb8ef2dcef24b70f, type: 3}
-  Sprite1: {fileID: -2578613583421291379, guid: 504647d20da6d3f1d9e9b98354a3ae46, type: 3}
-  Sprite2: {fileID: 1703502639796891793, guid: 2a11c5c5b082b3bec96913ba586a9119, type: 3}
+  Sprite1: {fileID: 3959922740387019359, guid: 715a95c87667bcfe5aa908df52bd54c7, type: 3}
+  Sprite2: {fileID: -1937887712669590171, guid: 35477cfbcb7fada21a5b93fc8a588744, type: 3}
   _parentBoard: {fileID: 350284878}
   _board: {fileID: 326439681}
 --- !u!1 &1170292478

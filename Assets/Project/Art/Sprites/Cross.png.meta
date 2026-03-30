@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 504647d20da6d3f1d9e9b98354a3ae46
+guid: 715a95c87667bcfe5aa908df52bd54c7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2578613583421291379
-    second: "\u0421ross_0"
+      213: 3959922740387019359
+    second: X_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u0421ross_0"
+      name: X_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 512
-        height: 512
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d844d23ab9ce63cd0800000000000000
-      internalID: -2578613583421291379
+      spriteID: f5a72c670c874f630800000000000000
+      internalID: 3959922740387019359
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u0421ross_0": -2578613583421291379
+      X_0: 3959922740387019359
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
